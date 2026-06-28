@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuery — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bg-animation.css">
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<nav class="top-nav">
+  <a href="front.html" class="top-nav-brand"><span>EQ</span> EduQuery</a>
+  <div class="top-nav-links">
+    <a href="index.html"     class="nav-btn">💬 Chat</a>
+    <a href="dashboard.html" class="nav-btn active">📊 Dashboard</a>
+    <a href="interview.html" class="nav-btn">🎯 Interview</a>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+  <div class="dashboard-container">
+    <div style="margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1 style="font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:700;color:var(--text-primary);">Student Analytics</h1>
+        <p style="color:var(--text-muted);font-size:0.88rem;margin-top:4px;">Track your learning progress over time</p>
+      </div>
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">← Back to Chat</button>
+    </div>
+
+    <div id="dashboardContent">
+      <div style="text-align:center;padding:60px 20px;">
+        <div class="spinner"></div>
+        <p style="color:var(--text-muted);margin-top:16px;font-size:0.9rem;">Loading your progress…</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/bg-animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuery — AI Academic Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bg-animation.css">
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a href="front.html" class="top-nav-brand">
+    <span>EQ</span> EduQuery
+  </a>
+  <div class="top-nav-links">
+    <a href="front.html"     class="nav-btn">🏠 Home</a>
+    <a href="index.html"     class="nav-btn active">💬 Chat</a>
+    <a href="dashboard.html" class="nav-btn">📊 Dashboard</a>
+    <a href="interview.html" class="nav-btn">🎯 Interview</a>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+  <div class="main-container">
+
+    <!-- CHAT -->
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-header-dot"></div>
+        <span class="chat-header-title">EduQuery Assistant</span>
+        <span class="chat-header-sub">AI-powered study companion</span>
+      </div>
+
+      <div id="chat-box" class="chat-box">
+        <div class="bot-message" style="opacity:0.7;font-size:0.88rem;">
+          👋 Hi! I'm EduQuery. Ask me any academic question — or use the buttons below to generate a test, flashcards, or interview prep.
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <div class="input-area">
+          <input type="text" id="user-input" placeholder="Ask any academic question…" autocomplete="off" />
+          <button id="send-btn">Send ↑</button>
+        </div>
+
+        <div class="button-group">
+          <button class="btn-test"      onclick="goToTest()">📘 Practice Test</button>
+          <button class="btn-flashcard" onclick="generateFlashcards()">🃏 Flashcards</button>
+          <button class="btn-interview" onclick="window.location.href='interview.html'">🎯 Interview Prep</button>
+        </div>
+
+        <div class="upload-section">
+          <label for="fileInput" class="custom-file-upload">📄 Choose PDF</label>
+          <input id="fileInput" type="file" accept=".pdf" hidden />
+          <button class="upload-btn" onclick="uploadDocument()">🚀 Upload & Ask</button>
+          <span id="uploadStatus"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="panel">
+        <h3>📚 Sources</h3>
+        <ul id="sources-list">
+          <li style="color:var(--text-muted);cursor:default;">No sources yet</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>🕘 Recent Questions</h3>
+        <ul id="history-list">
+          <li style="color:var(--text-muted);cursor:default;">No history yet</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- SPINNER OVERLAY -->
+<div id="global-spinner" class="spinner-overlay" style="display:none;">
+  <div class="spinner"></div>
+  <p>Processing…</p>
+</div>
+
+<!-- EXCERPT MODAL -->
+<div id="excerptModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalSource"></h3>
+    <div id="modalExcerpt"></div>
+  </div>
+</div>
+
+
+<style>
+  @keyframes dot-bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30%           { transform: translateY(-6px); }
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/bg-animation.js"></script>
+</body>
+</html>
